@@ -42,3 +42,20 @@ export const login = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+// Sabse niche ye function add karein
+export const getAllUsers = async (req, res) => {
+    try {
+        const users = await prisma.user.findMany({
+            select: {
+                id: true,
+                name: true,
+                email: true,
+                createdAt: true
+                // Password ko select nahi kiya taake security bani rahe
+            }
+        });
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
