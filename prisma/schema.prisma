@@ -3,12 +3,11 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL") // Ye line add karein
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
-// Ab niche aapke models (User, Product, Order) hone chahiye...
 model User {
   id        String   @id @default(uuid())
   name      String
